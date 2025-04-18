@@ -102,14 +102,14 @@
             <h2>Envoyez-nous un message</h2>
             <p>Vous avez une question ou souhaitez obtenir un devis ? Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
             
-            <form id="contactForm" action="https://formspree.io/f/xdkebvwe" method="POST">
+            <form id="contactForm" onsubmit="return sendEmail();">
                 <div class="form-group">
                     <label for="name">Nom et prénom</label>
                     <input type="text" id="name" name="name" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="_replyto" class="form-control" required>
+                    <input type="email" id="email" name="email" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Téléphone (optionnel)</label>
@@ -123,9 +123,6 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" class="form-control" required></textarea>
                 </div>
-                <input type="hidden" name="_subject" value="Nouveau message du site web Ordi-Phone Services">
-                <input type="hidden" name="_next" value="https://ordiphone-services.fr/merci.html">
-                <input type="text" name="_gotcha" style="display:none">
                 <button type="submit" class="btn">Envoyer le message</button>
             </form>
 
@@ -173,5 +170,27 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+        function sendEmail() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var subject = document.getElementById('subject').value;
+            var message = document.getElementById('message').value;
+            
+            var mailtoLink = 'mailto:ordiphone30@gmail.com'
+                + '?subject=' + encodeURIComponent('Message du site web: ' + subject)
+                + '&body=' + encodeURIComponent('Nom: ' + name + '\nEmail: ' + email + '\nTéléphone: ' + phone + '\n\nMessage:\n' + message);
+            
+            window.location.href = mailtoLink;
+            
+            // Redirection vers la page de remerciement après un court délai
+            setTimeout(function() {
+                window.location.href = 'merci.html';
+            }, 1000);
+            
+            return false; // Empêche la soumission normale du formulaire
+        }
+    </script>
 </body>
 </html> 
