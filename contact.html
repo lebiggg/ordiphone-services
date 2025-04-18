@@ -182,12 +182,14 @@
                 + '?subject=' + encodeURIComponent('Message du site web: ' + subject)
                 + '&body=' + encodeURIComponent('Nom: ' + name + '\nEmail: ' + email + '\nTéléphone: ' + phone + '\n\nMessage:\n' + message);
             
-            window.location.href = mailtoLink;
+            // Ouvrir d'abord le client email
+            var emailWindow = window.open(mailtoLink);
             
-            // Redirection vers la page de remerciement après un court délai
-            setTimeout(function() {
-                window.location.href = 'merci.html';
-            }, 1000);
+            // Afficher une confirmation
+            alert("Votre message va s'ouvrir dans votre application de messagerie. Après avoir envoyé l'email, cliquez sur OK pour continuer.");
+            
+            // Rediriger vers la page de remerciement seulement après confirmation
+            window.location.href = 'merci.html';
             
             return false; // Empêche la soumission normale du formulaire
         }
