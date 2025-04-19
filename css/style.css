@@ -196,6 +196,79 @@ nav ul li a:hover, nav ul li a.active {
     margin-bottom: 2rem;
 }
 
+/* Section Promo */
+.promo {
+    background: #1a1a1a;
+    padding: 3rem 2rem;
+    margin: 0;
+    color: #fff;
+}
+
+.promo-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.promo-image {
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+}
+
+.promo-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.promo-text {
+    margin-bottom: 1rem;
+}
+
+.promo-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.promo-text p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #ccc;
+}
+
+.promo-text .btn {
+    margin-top: 0.5rem;
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.promo-text .btn:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .promo {
+        padding: 2rem 1rem;
+    }
+    
+    .promo-text h2 {
+        font-size: 1.5rem;
+    }
+    
+    .promo-text p {
+        font-size: 1rem;
+    }
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
